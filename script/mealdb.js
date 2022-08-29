@@ -1,34 +1,3 @@
-// const getMeal = () => {
-//     fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=rice')
-//         // fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=a')
-//         .then(response => response.json())
-//         .then(data => displayMeals(data.meals))
-// }
-
-// const displayMeals = meals => {
-//     // console.log(meals)
-
-//     for (let meal of meals) {
-//         // console.log(meal);
-
-//         const mealContainer = document.getElementById('meal-container');
-//         // mealContainer.innerHTML = '';
-//         const mealDiv = document.createElement('div');
-//         mealDiv.classList.add('col');
-//         mealDiv.innerHTML = `
-//             <div class="card">
-//                   <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-//                   <div class="card-body">
-//                     <h5 class="card-title">${meal.strMeal}</h5>
-//                     <p class="card-text">Meal-${meal.idMeal}, Category-${meal.strCategory}, Area-${meal.strArea}, Made of-${meal.strTags} </p>
-//                     <p class="card-text">${meal.strInstructions.slice(0, 200)}</p>
-//                   </div>
-//             </div>    
-//             `;
-//         mealContainer.appendChild(mealDiv);
-//     }
-// }
-
 const chooseMeal = () => {
 
     const searchMeal = document.getElementById('search-meal');
@@ -47,7 +16,7 @@ const chooseMeal = () => {
     const displayChooseMeals = (meals) => {
         // console.log(meals)
         for (let meal of meals) {
-            console.log(meal);
+            // console.log(meal);
 
             const chooseDiv = document.createElement('div');
             chooseDiv.innerHTML = `
@@ -59,7 +28,7 @@ const chooseMeal = () => {
                     Made of-${meal.strTags} </p>
                     <p class="card-text">${meal.strInstructions.slice(0, 150)}</p>
                     </div>
-                    <button class="btn btn-info btn-sm" onclick="showDetail()">Detail</button>
+                    <button class="btn btn-info btn-sm" onclick="getMealDetail(${meal.idMeal})">Detail</button>
                     </div>        
                     `;
             chooseMealContainer.appendChild(chooseDiv);
@@ -67,8 +36,26 @@ const chooseMeal = () => {
     }
 }
 
-const showDetail = () => {
-    console.log('I am clicked');
+const getMealDetail = (mealId) => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+        .then(resposne => resposne.json())
+        .then(meal => showMealDetail(meal.meals[0]))
 }
 
-// getMeal();
+const showMealDetail = (meal) => {
+    // console.log(meal)
+
+    const mealDetailsContainer = document.getElementById('meal-details-container');
+    mealDetailsContainer.innerHTML = `
+    <h1>Meal Details</h1>
+    <div class="w-50">
+                    <div class="card card-area">
+                    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">${meal.strMeal}</h5>
+                    <p class="card-text">Meal id-${meal.idMeal}, Category-${meal.strCategory}, Area-${meal.strArea},
+
+    </div>    
+    `;
+
+}
