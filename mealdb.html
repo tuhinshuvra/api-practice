@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Api</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/mealdb.css">
+</head>
+
+<body>
+    <header>
+        <h1 class=" text-center fw-bold text-info ">Ohaw What do you wants to Eat</h1>
+    </header>
+    <main>
+        <!-- search meal start -->
+        <section class=" text-center mt-2 mb-1">
+            <input id="search-meal" class=" mb-5 mt-1 " type="text" placeholder="Type here to search meal">
+            <button class="btn btn-primary" onclick="chooseMeal()">Choose Meal</button>
+        </section>
+        <!-- search meal end -->
+
+        <!-- search meal details start -->
+        <section id="choose-meal-container" class="row row-cols-1 row-cols-md-4 g-4">
+
+        </section>
+        <!-- <button class="btn btn-info btn-sm " onclick="showDetail()">Detail</button> -->
+
+        <!-- search meal details end -->
+
+        <!-- meal primary show field start-->
+        <!-- <section id="meal-container" class="row row-cols-1 row-cols-md-4 g-4">
+
+        </section> -->
+        <!-- meal primary show field end-->
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="/script/mealdb.js"></script>
+
+</body>
+
+</html>
